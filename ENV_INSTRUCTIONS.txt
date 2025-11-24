@@ -1,0 +1,32 @@
+===============================================
+ENVIRONMENT SETUP INSTRUCTIONS
+===============================================
+
+IMPORTANT: You need to create a .env.local file manually!
+
+1. Create a new file named ".env.local" in the task-frontend directory
+
+2. Add this content to the file:
+
+NEXT_PUBLIC_API_URL=http://localhost:3000
+
+3. Save the file
+
+4. Restart the development server if it's already running:
+   - Press Ctrl+C to stop
+   - Run: npm run dev
+
+===============================================
+WHY THIS IS NEEDED
+===============================================
+
+The NEXT_PUBLIC_API_URL environment variable tells the frontend
+where your NestJS backend is running.
+
+- Default: http://localhost:3000 (NestJS default port)
+- Frontend: http://localhost:3001 (Next.js will use next available port)
+
+If your backend runs on a different port, update the URL accordingly.
+
+===============================================
+
