@@ -63,6 +63,7 @@ export default function TasksPage() {
     setEditingTask(null);
   };
 
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -150,7 +151,14 @@ export default function TasksPage() {
       <TaskModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        onSubmit={editingTask ? handleUpdate : handleCreate}
+        onSubmit={(data) => {
+          if (editingTask) {
+            handleUpdate(data as UpdateTaskDto & { id: string });
+          } else {
+            handleCreate(data as CreateTaskDto);
+          }
+        }}
+        
         task={editingTask}
         isLoading={createMutation.isPending || updateMutation.isPending}
       />
